@@ -11,9 +11,16 @@ require_relative "concepts/post/operation/create.rb"
 require_relative "concepts/post/cell/new.rb"
 
 
-get "/" do
+get "/posts/new" do
   op = Post::Create.present({})
-  op.inspect
+  Post::Cell::New.(op).()
+end
+
+post "/posts" do
+  op = Post::Create.run(params) do |op|
+    redirect "/things/#{op.model.id}"
+  end
+
 
   Post::Cell::New.(op).()
 end

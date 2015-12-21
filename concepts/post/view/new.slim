@@ -1,1 +1,14 @@
 h1 New Post!
+
+form action="/posts" method="post"
+  .row
+    | Title:
+    input type="text" name="title" value=model.contract.title
+  .row
+    | Content:
+    textarea name="content"
+      =model.contract.content
+  .row
+    input type="submit"
+
+= model.contract.errors.messages.inspect

@@ -23,4 +23,4 @@ In development, start the server with
 rerun "bundle exec ruby app.rb"
 ```
 
-And browse to `http://localhost:4567`.
+And browse to `http://localhost:4567/posts/new`.
