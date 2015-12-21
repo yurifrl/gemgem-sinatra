@@ -1,10 +1,15 @@
-# Sinatra-Sequel-RSpec Template
+# Sinatra With Trailblazer
 
-This template is an extended "Hello World" for a Sinatra-Sequel-RSpec 
-app. It provides an example folder structure, migrations, model, helper, 
-routes and specs to help you quickly get started writing your own app.
+_Cause We Can._
 
-An extensive blog post on this template is available at:
-http://drafts.workingdemo.com/2010/04/sinatra-sequel-rspec-template/
+## Stack
 
-*Original parts Copyright (c) 2010 Robert Graff. Released under the MIT license.*
+The following gems are used in this project.
+
+| Gem | Layer |
+| Sinatra | Infrastructure, Routing |
+| Trailblazer | Business |
+| Reform | Validation |
+| Dry-validation | Validation |
+| Cells | Presentation |
+| Slim | Presentation |
