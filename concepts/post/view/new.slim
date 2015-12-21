@@ -1,9 +1,12 @@
 h1 New Post!
 
-form action="/posts" method="post"
+form action="#{url}" method="post"
   .row
     | Title:
     input type="text" name="title" value=model.contract.title
+  .row
+    | URL slug:
+    input type="text" name="url_slug" value=model.contract.url_slug
   .row
     | Content:
     textarea name="content"

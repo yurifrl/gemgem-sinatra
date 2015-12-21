@@ -7,5 +7,10 @@ module Post::Cell
     def show
       render view: :new, prefixes: ["concepts/post/view"]
     end
+
+  private
+    def url
+      options[:url]
+    end
   end
 end

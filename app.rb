@@ -29,5 +29,18 @@ end
 get "/posts/:id" do
   op = Post::Update.present(params)
 
-  Post::Cell::Show.(op.model).()
+  Post::Cell::Show.(op.model, url: "/posts/").()
+end
+
+get "/posts/:id/edit" do
+  op = Post::Update.present(params)
+  Post::Cell::New.(op, url: "/posts/#{op.model.id}").()
+end
+
+post "/posts/:id" do
+  op = Post::Update.run(params) do |op|
+    redirect "/posts/#{op.model.id}"
+  end
+
+  Post::Cell::Show.(op.model, url: "/posts/#{op.model.id}").()
 end
