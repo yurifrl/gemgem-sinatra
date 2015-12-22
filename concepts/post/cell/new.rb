@@ -5,7 +5,7 @@ module Post::Cell
     include Cell::Slim
 
     def show
-      render view: :new, prefixes: ["concepts/post/view"]
+      render view: :new, prefixes: ["concepts/post/view", "lib/view"], layout: :layout
     end
 
   private
