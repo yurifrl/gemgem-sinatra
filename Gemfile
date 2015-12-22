@@ -11,4 +11,6 @@ gem "cells"                     # presentation
 gem "cells-slim", ">= 0.0.4"
 
 
+gem "trailblazer-cells", path: "../trailblazer-cells"
+
 gem "rerun"
