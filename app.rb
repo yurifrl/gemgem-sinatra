@@ -15,7 +15,7 @@ require_relative "concepts/post/cell/show.rb"
 
 get "/posts/new" do
   op = Post::Create.present({})
-  Post::Cell::New.(op).()
+  Post::Cell::New.(op, url: "/posts").()
 end
 
 post "/posts" do
@@ -23,13 +23,13 @@ post "/posts" do
     redirect "/posts/#{op.model.id}"
   end
 
-  Post::Cell::New.(op).()
+  Post::Cell::New.(op, url: "/posts").()
 end
 
 get "/posts/:id" do
   op = Post::Update.present(params)
 
-  Post::Cell::Show.(op.model, url: "/posts/").()
+  Post::Cell::Show.(op.model, url: "/posts").()
 end
 
 get "/posts/:id/edit" do
@@ -42,5 +42,5 @@ post "/posts/:id" do
     redirect "/posts/#{op.model.id}"
   end
 
-  Post::Cell::Show.(op.model, url: "/posts/#{op.model.id}").()
+  Post::Cell::Show.(op.model).()
 end

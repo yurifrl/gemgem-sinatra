@@ -6,7 +6,7 @@ form action="#{url}" method="post"
     input type="text" name="title" value=model.contract.title
   .row
     | URL slug:
-    input type="text" name="url_slug" value=model.contract.url_slug
+    input type="text" name="url_slug" value=model.contract.url_slug disabled=model.contract.options_for(:url_slug)[:readonly]
   .row
     | Content:
     textarea name="content"

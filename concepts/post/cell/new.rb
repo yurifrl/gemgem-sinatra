@@ -10,7 +10,7 @@ module Post::Cell
 
   private
     def url
-      options[:url]
+      options[:url] || raise("no action URL!")
     end
   end
 end
