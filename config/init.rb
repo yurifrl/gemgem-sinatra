@@ -15,3 +15,21 @@ Sequel::Model.strict_param_setting = false
 # Dir["models/**/*.rb"].each{|model|
 #   require model
 # }
+
+require "trailblazer/operation"
+require "reform/form/dry"
+require "trailblazer/cells"
+require "cells-slim"
+
+Trailblazer::Cell.class_eval do
+  include Cell::Slim
+  self.view_paths = ["concepts"] # DISCUSS: is that the right place?
+end
+
+# TODO: use trailblazer-loader.
+require_relative "../concepts/post/operation/create.rb"
+require_relative "../concepts/post/operation/update.rb"
+require_relative "../concepts/post/cell/new.rb"
+require_relative "../concepts/post/cell/show.rb"
+
+require_relative "../gemgem/cell/layout.rb"
