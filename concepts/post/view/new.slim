@@ -3,11 +3,13 @@
 
 form action="#{url}" method="post"
   .form-group
-    input type="text" name="title" value="" placeholder="Title" class="form-control"
+    input type="text" name="title" value=model.contract.title placeholder="Title" class="form-control"
   .form-group
-    input type="text" name="url_slug" value="" disabled=""  placeholder="URL slug" class="form-control"
+    input type="text" name="url_slug" value=model.contract.url_slug disabled=model.contract.options_for(:url_slug)[:readonly]  placeholder="URL slug" class="form-control"
   .form-group
     textarea name="content"  placeholder="And your story..." rows="9" class="form-control"
-      =""
+      =model.contract.content
   .form-group
     input type="submit" class="btn btn-lg btn-default"
+    
+= model.contract.errors.messages.inspect
