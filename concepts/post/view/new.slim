@@ -1,14 +1,13 @@
-h1 New Post!
+.page-header.text-center
+  h1 New Post!
 
 form action="#{url}" method="post"
-  .row
-    input type="text" name="title" value=model.contract.title placeholder="Title"
-  .row
-    input type="text" name="url_slug" value=model.contract.url_slug disabled=model.contract.options_for(:url_slug)[:readonly]  placeholder="URL slug"
-  .row
-    textarea name="content"  placeholder="And your story..." rows="9"
-      =model.contract.content
-  .row
-    input type="submit" class="large button expand"
-
-= model.contract.errors.messages.inspect
+  .form-group
+    input type="text" name="title" value="" placeholder="Title" class="form-control"
+  .form-group
+    input type="text" name="url_slug" value="" disabled=""  placeholder="URL slug" class="form-control"
+  .form-group
+    textarea name="content"  placeholder="And your story..." rows="9" class="form-control"
+      =""
+  .form-group
+    input type="submit" class="btn btn-lg btn-default"

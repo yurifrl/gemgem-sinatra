@@ -1,4 +1,4 @@
-body { background-color: #fff; color: #333; }
+/*body { background-color: #fff; color: #333; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -6,3 +6,6 @@ body, p, ol, ul, td {
   line-height: 18px;
 }
 
+*/
+
+body { padding-top: 70px; }

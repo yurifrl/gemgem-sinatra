@@ -13,6 +13,8 @@ migration "create the posts table" do
   end
 end
 
-migration "add URL slug to posts" do
-  database.add_column :posts, :url_slug, String
-end
+#removed as this is now included in the initial create posts table method
+#and was causing errors 
+# migration "add URL slug to posts" do
+#   database.add_column :posts, :url_slug, String
+# end

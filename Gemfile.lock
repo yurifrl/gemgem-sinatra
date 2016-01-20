@@ -2,22 +2,62 @@ GEM
   remote: https://rubygems.org/
   specs:
     bacon (1.2.0)
+    cells (4.0.4)
+      tilt (>= 1.4, < 3)
+      uber (~> 0.0.9)
+    cells-slim (0.0.4)
+      cells (~> 4.0.0.beta6)
+      slim (~> 3.0)
     declarative (0.0.5)
       uber (>= 0.0.15)
-    disposable (0.2.1)
+    disposable (0.2.5)
       declarative (~> 0.0.4)
       representable (>= 2.4.0, <= 3.1.0)
       uber
+    dry-configurable (0.1.3)
+      thread_safe
+    dry-container (0.2.8)
+      dry-configurable (~> 0.1, >= 0.1.3)
+      thread_safe
+    dry-data (0.5.1)
+      dry-configurable (~> 0.1)
+      dry-container (~> 0.2)
+      dry-equalizer (~> 0.2)
+      dry-logic (~> 0.1)
+      inflecto (~> 0.0.0, >= 0.0.2)
+      kleisli (~> 0.2)
+      thread_safe (~> 0.3)
+    dry-equalizer (0.2.0)
+    dry-logic (0.1.2)
+      dry-container (~> 0.2, >= 0.2.6)
+      dry-equalizer (~> 0.2)
+    dry-validation (0.6.0)
+      dry-configurable (~> 0.1, >= 0.1.3)
+      dry-container (~> 0.2, >= 0.2.8)
+      dry-data (~> 0.5, >= 0.5.0)
+      dry-equalizer (~> 0.2)
+      dry-logic (~> 0.1, >= 0.1.2)
+    ffi (1.9.10)
+    inflecto (0.0.2)
+    kleisli (0.2.7)
+    listen (3.0.5)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
-    reform (2.1.0.rc1)
-      disposable (>= 0.2.1, < 0.3.0)
+    rb-fsevent (0.9.7)
+    rb-inotify (0.9.5)
+      ffi (>= 0.5.0)
+    reform (2.1.0)
+      disposable (>= 0.2.2, < 0.3.0)
       representable (>= 2.4.0, < 3.1.0)
       uber (~> 0.0.11)
     representable (3.0.0)
       declarative (~> 0.0.5)
       uber (~> 0.0.15)
+    rerun (0.11.0)
+      listen (~> 3.0)
     sequel (4.29.0)
     sinatra (1.4.6)
       rack (~> 1.4)
@@ -27,23 +67,32 @@ GEM
       bacon
       sequel (>= 3.2.0)
       sinatra (>= 0.9.4)
+    slim (3.0.6)
+      temple (~> 0.7.3)
+      tilt (>= 1.3.3, < 2.1)
     sqlite3 (1.3.11)
+    temple (0.7.6)
+    thread_safe (0.3.5)
     tilt (2.0.1)
     trailblazer (1.1.0.rc1)
       declarative
       reform (>= 2.0.0, < 3.0.0)
       uber (>= 0.0.15)
+    trailblazer-cells (0.0.1)
+      cells (>= 4.0.3, < 5.0.0)
     uber (0.0.15)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  reform (= 2.1.0.rc1)
+  cells
+  cells-slim (>= 0.0.4)
+  dry-validation (>= 0.4.0)
+  reform (= 2.1.0)
+  rerun
   sinatra
   sinatra-sequel
   sqlite3
   trailblazer (= 1.1.0.rc1)
-
-BUNDLED WITH
-   1.10.6
+  trailblazer-cells
