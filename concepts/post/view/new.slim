@@ -1,5 +1,26 @@
 h1 New Post!
 
+- require "formular"
+- require "formular/frontend/foundation5"
+
+= Formular::Foundation5::Builder.new(model: model.contract).form(action: url, method: :post) do |f|
+  .row
+    = f.input :title, placeholder: "Title"
+  .row
+    = f.input :url_slug, placeholder: "URL slug"
+  .row
+    = f.checkbox :is_public, label: "Public?"
+  .row
+    = f.radio :owner, label: "Flori", value: 1
+    = f.radio :owner, label: "Konsti", value: 2
+  .row
+    fieldset
+      = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, checked: [2], label: "Roles"
+  .row
+    = f.textarea :content, placeholder: "And your story...", rows: 9
+  .row
+    = f.button type: :submit, value: "Submit!", class: [:large, :button, :expand]
+
 form action="#{url}" method="post"
   .row
     input type="text" name="title" value=model.contract.title placeholder="Title"
@@ -12,3 +33,5 @@ form action="#{url}" method="post"
     input type="submit" class="large button expand"
 
 = model.contract.errors.messages.inspect
+
+

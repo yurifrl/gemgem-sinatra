@@ -4,7 +4,7 @@
       <meta charset="utf-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <title>Sinatra Sings Gemgem | Welcome</title>
-      <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css">
   </head>
   <body>
 
@@ -19,17 +19,20 @@
     </div>
 
     <div class="callout large primary">
-      <div class="row column text-center">
-        <h1>Sinatra and Trailblazer</h1>
-        <h2 class="subheader">Our blog about high-level architecture and awesome software.</h2>
-      </div>
+      .row
+        <div class="column text-center">
+          <h1>Sinatra and Trailblazer</h1>
+          <h2 class="subheader">Our blog about high-level architecture and awesome software.</h2>
+        </div>
     </div>
 
-    div class="row medium-8 large-7 columns"
-      = content
+    .row
+      div class="large-12 columns"
+        = content
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     javascript:
       $(document).foundation();
 
