@@ -1,4 +1,29 @@
-h1 New Post!
+.page-header.text-center
+  h1 New Post!
+
+- require "formular"
+- require "formular/frontend/bootstrap3"
+
+= Formular::Bootstrap3::Builder.new(model: model.contract).form(action: url, method: :post) do |f|
+
+  .form-group
+    = f.input :title, placeholder: "Title"
+  .from-group
+    = f.input :url_slug, placeholder: "URL slug"
+  .form-group
+    = f.checkbox :is_public, label: "Public?"
+  .form-group
+    = f.radio :owner, label: "Flori", value: 1
+    = f.radio :owner, label: "Konsti", value: 2
+  .form-group
+    = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, checked: (model.contract.roles||[]), label: "Roles"
+  .form-group
+    = f.textarea :content, placeholder: "And your story...", rows: 9
+  .form-group
+    = f.button type: :submit, value: "Submit!", class: [:btn, :'btn-lg', :'btn-default']
+
+.page-header.text-center
+  h1 Manual Basic form for comparison
 
 - require "formular"
 - require "formular/frontend/foundation5"
@@ -22,16 +47,73 @@ h1 New Post!
     = f.button type: :submit, value: "Submit!", class: [:large, :button, :expand]
 
 form action="#{url}" method="post"
-  .row
-    input type="text" name="title" value=model.contract.title placeholder="Title"
-  .row
-    input type="text" name="url_slug" value=model.contract.url_slug disabled=model.contract.options_for(:url_slug)[:readonly]  placeholder="URL slug"
-  .row
-    textarea name="content"  placeholder="And your story..." rows="9"
-      =model.contract.content
-  .row
-    input type="submit" class="large button expand"
+  .form-group
+    label for="text" Text Field
+    input type="text" name="text" class="form-control"
 
-= model.contract.errors.messages.inspect
+  .form-group
+    label for="text-area" Text Area
+    textarea name="text-area" rows="3" class="form-control"
 
+  label Stacked Checkboxes
+  div class="checkbox"
+    label
+      input type="checkbox" Stacked Checkbox 1
+  div class="checkbox"
+    label
+      input type="checkbox" Stacked Checkbox 2
+  div class="checkbox"
+    label
+      input type="checkbox" Stacked Checkbox 3
+
+  label Inline Checkboxes
+  .form-group
+    label class="checkbox-inline"
+      input type="checkbox" inline checkbox 1
+    label class="checkbox-inline"
+      input type="checkbox" inline checkbox 2
+    label class="checkbox-inline"
+      input type="checkbox" inline checkbox 3
+
+  label Stacked Radio Buttons
+  div class="radio"
+    label
+      input type="radio" name="stackedRadio" Stacked Radio Button 1
+  div class="radio"
+    label
+      input type="radio" name="stackedRadio" Stacked Radio Button 2
+  div class="radio"
+    label
+      input type="radio" name="stackedRadio" Stacked Radio Button 3
+
+  label Inline Radio Buttons
+  .form-group
+    label class="radio-inline"
+      input type="radio" name="inlineRadio" inline radio 1
+    label class="radio-inline"
+      input type="radio" name="inlineRadio" inline radio 2
+    label class="radio-inline"
+      input type="radio" name="inlineRadio" inline radio 3
+
+  .form-group
+    label for="exampleSelectSingle" Select Field (single)
+    select class="form-control" id="exampleSelectSingle"
+      option 1
+      option 2
+      option 3
+      option 4
+
+  .form-group
+    label for="exampleSelectMultiple" Select Field (multiple)
+    select class="form-control" multiple="" id="exampleSelectMultiple"
+      option 1
+      option 2
+      option 3
+      option 4
+
+  .form-group
+    label for="exampleInputFile" File input
+    input type="file" id="exampleInputFile"
+
+  input type="submit" class="btn btn-lg btn-default"
 
