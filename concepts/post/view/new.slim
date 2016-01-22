@@ -1,23 +1,29 @@
 .page-header.text-center
   h1 New Post!
 
-form action="#{url}" method="post"
-  .form-group
-    input type="text" name="title" value=model.contract.title placeholder="Title" class="form-control"
-  .form-group
-    input type="text" name="url_slug" value=model.contract.url_slug disabled=model.contract.options_for(:url_slug)[:readonly]  placeholder="URL slug" class="form-control"
-  .form-group
-    textarea name="content"  placeholder="And your story..." rows="9" class="form-control"
-      =model.contract.content
-  .form-group
-    input type="submit" class="btn btn-lg btn-default"
-    
-= model.contract.errors.messages.inspect
+- require "formular"
+- require "formular/frontend/bootstrap3"
 
+= Formular::Bootstrap3::Builder.new(model: model.contract).form(action: url, method: :post) do |f| 
 
+  .form-group
+    = f.input :title, placeholder: "Title"
+  .from-group
+    = f.input :url_slug, placeholder: "URL slug"
+  .form-group
+    = f.checkbox :is_public, label: "Public?"
+  .form-group
+    = f.radio :owner, label: "Flori", value: 1
+    = f.radio :owner, label: "Konsti", value: 2
+  .form-group
+    = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, checked: (model.contract.roles||[]), label: "Roles"
+  .form-group
+    = f.textarea :content, placeholder: "And your story...", rows: 9
+  .form-group
+    = f.button type: :submit, value: "Submit!", class: [:btn, :'btn-lg', :'btn-default']
 
 .page-header.text-center
-  h1 Basic Form - No validation
+  h1 Manual Basic form for comparison
 
 form action="#{url}" method="post"
   .form-group

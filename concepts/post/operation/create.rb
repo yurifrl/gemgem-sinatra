@@ -5,6 +5,9 @@ class Post::Create < Trailblazer::Operation
     property :title
     property :url_slug
     property :content
+    property :is_public, virtual: true
+    property :owner
+    property :roles
 
     include Reform::Form::Dry::Validations
 
