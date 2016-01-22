@@ -6,8 +6,8 @@ class Post::Create < Trailblazer::Operation
     property :url_slug
     property :content
     property :is_public, virtual: true
-    property :owner, virtual: true
-    property :roles, virtual: true
+    property :owner
+    property :roles
 
     include Reform::Form::Dry::Validations
 
@@ -26,12 +26,6 @@ class Post::Create < Trailblazer::Operation
         config.messages_file = 'concepts/post/operation/dry_error_messages.yml'
       }
     end
-
-    # def is_public
-    #   return 1 if super.nil?
-    #   return 1 if super.to_s=="1"
-    #   0
-    # end
   end
 
   def model!(*)

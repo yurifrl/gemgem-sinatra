@@ -16,3 +16,8 @@ end
 migration "add URL slug to posts" do
   database.add_column :posts, :url_slug, String
 end
+
+migration "add owner and roles" do
+  database.add_column :posts, :owner, String
+  database.add_column :posts, :roles, String
+end
