@@ -1,4 +1,4 @@
-h1 New Post!
+%h1 New Post!
 
 - require "formular"
 - require "formular/frontend/foundation5"
@@ -14,24 +14,11 @@ h1 New Post!
     = f.radio :owner, label: "Flori", value: 1
     = f.radio :owner, label: "Konsti", value: 2
   .row
-    fieldset
+    %fieldset
       = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, checked: (model.contract.roles||[]), label: "Roles"
   .row
     = f.textarea :content, placeholder: "And your story...", rows: 9
   .row
     = f.button type: :submit, value: "Submit!", class: [:large, :button, :expand]
-
-form action="#{url}" method="post"
-  .row
-    input type="text" name="title" value=model.contract.title placeholder="Title"
-  .row
-    input type="text" name="url_slug" value=model.contract.url_slug disabled=model.contract.options_for(:url_slug)[:readonly]  placeholder="URL slug"
-  .row
-    textarea name="content"  placeholder="And your story..." rows="9"
-      =model.contract.content
-  .row
-    input type="submit" class="large button expand"
-
-= model.contract.errors.messages.inspect
 
 
