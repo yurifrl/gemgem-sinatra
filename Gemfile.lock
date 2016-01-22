@@ -1,12 +1,4 @@
 PATH
-  remote: ../cells-hamlit
-  specs:
-    cells-hamlit (0.1.1)
-      cells (~> 4.0)
-      hamlit
-      hamlit-block (~> 0.3.0)
-
-PATH
   remote: ../formular
   specs:
     formular (0.1.0)
@@ -26,6 +18,10 @@ GEM
     cells (4.0.3)
       tilt (>= 1.4, < 3)
       uber (~> 0.0.9)
+    cells-hamlit (0.1.1)
+      cells (~> 4.0)
+      hamlit
+      hamlit-block (~> 0.3.0)
     declarative (0.0.5)
       uber (>= 0.0.15)
     disposable (0.2.3)
@@ -100,7 +96,7 @@ PLATFORMS
 
 DEPENDENCIES
   cells
-  cells-hamlit!
+  cells-hamlit (>= 0.1.1)
   dry-validation (>= 0.4.0)
   formular!
   reform!
