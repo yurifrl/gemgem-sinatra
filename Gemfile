@@ -13,5 +13,6 @@ gem "cells-hamlit", ">= 0.1.1" #path: "../cells-hamlit"
 gem "trailblazer-cells"
 
 gem "rerun"
+gem "benchmark-ips"
 
 gem "formular", path: "../formular"

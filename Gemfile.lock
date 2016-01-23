@@ -15,6 +15,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     bacon (1.2.0)
+    benchmark-ips (2.3.0)
     cells (4.0.3)
       tilt (>= 1.4, < 3)
       uber (~> 0.0.9)
@@ -95,6 +96,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  benchmark-ips
   cells
   cells-hamlit (>= 0.1.1)
   dry-validation (>= 0.4.0)
