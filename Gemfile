@@ -9,7 +9,7 @@ gem "reform",      path: "../reform"  # validation
 gem "dry-validation", ">= 0.4.0"
 gem "cells"                     # presentation
 # gem "cells-slim", ">= 0.0.4"
-gem "cells-hamlit", ">= 0.1.1" #path: "../cells-hamlit"
+gem "cells-haml", path: "../cells-haml"
 gem "trailblazer-cells"
 
 gem "rerun"
