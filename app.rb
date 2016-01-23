@@ -3,7 +3,12 @@ require_relative "config/init"
 
 get "/posts/new" do
   op = Post::Create.present({})
-  Post::Cell::New.(op, url: "/posts", layout: Gemgem::Cell::Layout).()
+
+  require "benchmark"
+  time = Benchmark.measure {
+    Post::Cell::New.(op, url: "/posts", layout: Gemgem::Cell::Layout).()
+  }
+  puts "@@@@@ #{time.inspect}"
 end
 
 post "/posts" do
