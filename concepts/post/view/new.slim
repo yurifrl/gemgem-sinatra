@@ -6,17 +6,15 @@
 
 = Formular::Bootstrap3::Builder.new(model: model.contract).form(action: url, method: :post) do |f|
 
-  .form-group
-    = f.input :title, placeholder: "Title"
-  .from-group
-    = f.input :url_slug, placeholder: "URL slug"
+  = f.input :title, placeholder: "Title"
+  = f.input :url_slug, placeholder: "URL slug"
   .form-group
     = f.checkbox :is_public, label: "Public?"
   .form-group
     = f.radio :owner, label: "Flori", value: 1
     = f.radio :owner, label: "Konsti", value: 2
-  .form-group
-    = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, checked: (model.contract.roles||[]), label: "Roles"
+  = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, checked: (model.contract.roles||[]), label: "Roles"
+  = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, inline: true, checked: (model.contract.roles||[]), label: "Roles"
   .form-group
     = f.textarea :content, placeholder: "And your story...", rows: 9
   .form-group
