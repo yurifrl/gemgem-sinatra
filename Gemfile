@@ -12,5 +12,6 @@ gem "cells-slim", ">= 0.0.4"
 gem "trailblazer-cells"
 
 gem "rerun"
+gem "benchmark-ips"
 
 gem "formular", path: "../formular"
