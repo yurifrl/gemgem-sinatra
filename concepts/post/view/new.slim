@@ -14,13 +14,18 @@
     = f.radio :owner, label: "Flori", value: 1
     = f.radio :owner, label: "Konsti", value: 2
 
-  = f.collection :owner, [["Flori", 1], ["Konsti", 2]], type: :radio, label: "Owners"
-  = f.collection :owner, [["Flori", 1], ["Konsti", 2]], type: :radio, label: "Owners, inline", inline: true
+  .row
+    .col-md-6
+      = f.collection :owner, [["Flori", 1], ["Konsti", 2]], type: :radio, label: "Owners"
+    .col-md-6
+      = f.collection :owner, [["Flori", 1], ["Konsti", 2]], type: :radio, label: "Owners, inline", inline: true
 
   = f.select :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], selected: (model.contract.roles||[]), label: "Selectable Roles"
 
-  = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, checked: (model.contract.roles||[]), label: "Roles"
-  = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, inline: true, checked: (model.contract.roles||[]), label: "Roles, inline"
+  .row
+    = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, checked: (model.contract.roles||[]), label: "Roles", wrapper_attrs: { class: ["col-md-6"] }
+    = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, inline: true, checked: (model.contract.roles||[]), label: "Roles, inline", wrapper_attrs: { class: ["col-md-6"] }
+
   .form-group
     = f.textarea :content, placeholder: "And your story...", rows: 9
   .form-group
