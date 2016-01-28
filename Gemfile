@@ -10,8 +10,9 @@ gem "cells-slim", ">= 0.0.4"
 gem "trailblazer-cells"
 gem "reform",      "2.1.0"  # validation
 gem "rerun"
+gem "benchmark-ips"
 
 
 
-# gem "formular", path: "../formular"
-gem "formular", git: "https://github.com/apotonick/formular.git"
+gem "formular", path: "../formular"
+# gem "formular", git: "https://github.com/apotonick/formular.git"

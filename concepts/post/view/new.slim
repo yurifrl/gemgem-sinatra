@@ -13,8 +13,14 @@
   .form-group
     = f.radio :owner, label: "Flori", value: 1
     = f.radio :owner, label: "Konsti", value: 2
+
+  = f.collection :owner, [["Flori", 1], ["Konsti", 2]], type: :radio, label: "Owners"
+  = f.collection :owner, [["Flori", 1], ["Konsti", 2]], type: :radio, label: "Owners, inline", inline: true
+
+  = f.select :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], selected: (model.contract.roles||[]), label: "Selectable Roles"
+
   = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, checked: (model.contract.roles||[]), label: "Roles"
-  = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, inline: true, checked: (model.contract.roles||[]), label: "Roles"
+  = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, inline: true, checked: (model.contract.roles||[]), label: "Roles, inline"
   .form-group
     = f.textarea :content, placeholder: "And your story...", rows: 9
   .form-group
@@ -22,27 +28,6 @@
 
 .page-header.text-center
   h1 Manual Basic form for comparison
-
-- require "formular"
-- require "formular/frontend/foundation5"
-
-= Formular::Foundation5::Builder.new(model: model.contract).form(action: url, method: :post) do |f|
-  .row
-    = f.input :title, placeholder: "Title"
-  .row
-    = f.input :url_slug, placeholder: "URL slug"
-  .row
-    = f.checkbox :is_public, label: "Public?"
-  .row
-    = f.radio :owner, label: "Flori", value: 1
-    = f.radio :owner, label: "Konsti", value: 2
-  .row
-    fieldset
-      = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, checked: (model.contract.roles||[]), label: "Roles"
-  .row
-    = f.textarea :content, placeholder: "And your story...", rows: 9
-  .row
-    = f.button type: :submit, value: "Submit!", class: [:large, :button, :expand]
 
 form action="#{url}" method="post"
   .form-group
