@@ -22,7 +22,7 @@
     = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, checked: (model.contract.roles||[]), label: "Roles", wrapper_attrs: { class: ["col-md-2"] }
     = f.collection :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], type: :checkbox, inline: true, checked: (model.contract.roles||[]), label: "Roles, inline", wrapper_attrs: { class: ["col-md-5"] }
 
-  = f.select :roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], selected: (model.contract.roles||[]), label: "Selectable Roles"
+  = f.select :select_roles, [["Admin", 1], ["Owner", 2], ["Maintainer", 3]], selected: (model.contract.roles||[]), label: "Selectable Roles"
 
   .form-group
     = f.textarea :content, placeholder: "And your story...", rows: 9

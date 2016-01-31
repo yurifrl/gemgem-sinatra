@@ -8,6 +8,7 @@ class Post::Create < Trailblazer::Operation
     property :is_public, virtual: true
     property :owner
     property :roles
+    property :select_roles, from: :roles
 
     include Reform::Form::Dry::Validations
 
