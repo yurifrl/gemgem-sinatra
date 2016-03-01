@@ -13,6 +13,6 @@ migration "create the posts table" do
   end
 end
 
-migration "add URL slug to posts" do
-  database.add_column :posts, :url_slug, String
-end
+# migration "add URL slug to posts" do
+#   database.add_column :posts, :url_slug, String
+# end
